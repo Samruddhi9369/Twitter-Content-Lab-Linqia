@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Twitter Content Lab</h1>
     <SearchForm v-on:formSubmit="searchTweet"></SearchForm>
-    <SearchOutput v-bind:tweets="tweets" v-on:sortTweets="sortTweet"></SearchOutput>
+    <SearchOutput v-bind:sortBy="sortBy" v-bind:tweets="tweets" v-on:sortTweets="sortTweet"></SearchOutput>
   </div>
 </template>
 
@@ -20,18 +20,20 @@ export default {
   },
   data: function(){
     return {
-      tweets:[]
+      tweets:[],
+      sortBy:''
     }
   },
   methods: {
     async searchTweet(tagName, resultCount, resultType) {
       const response =  await TweetService.fetchTweets(tagName, resultCount, resultType)
       let prev_tweets = response.data.slice()
+      let sortBy = SearchOutput.sortBy
         prev_tweets.sort((a, b) => {
           return b.favorites - a.favorites;
         });
       this.tweets = prev_tweets
-      SearchOutput.sortBy = 'favorites'
+      this.sortBy = sortBy;
     },
     sortTweet(prev_tweets, sortBy) {
       if (sortBy === 'favorites') {
