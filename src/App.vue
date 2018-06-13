@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import TweetService from './service/TweetService'
 import SearchForm from './components/SearchForm'
 import SearchOutput from './components/SearchOutput'
