@@ -45,8 +45,13 @@ export default {
   },
   methods: {
     formSubmit(e) {
-      if(validateHashtag(this.tagName) && validateCount(this.resultCount))
+      if(validateHashtag(this.tagName) && validateCount(this.resultCount)){
+        if(this.resultCount > 100){
+          this.resultCount = 100;
+        }
         this.$emit('formSubmit', this.tagName, this.resultCount, this.resultType)
+      }
+        
       e.preventDefault()
     }
   }
