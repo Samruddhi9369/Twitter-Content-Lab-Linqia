@@ -14,12 +14,13 @@
                   <span class="form-small-text">Default count: 15</span>
               </div>
               <div class="form-group">
-                  <label for="resultType">Hashtags</label>
+                  <label for="resultType">Result Type</label>
                   <select class="form-control" v-model="resultType">
                       <option value="popular">Popular</option>
                       <option value="recent">Most Recent</option>
                       <option value="mixed">Mixed</option>
                   </select>
+                  <span class="form-small-text">Type of Tweets</span>
               </div>
         </div>
         <div class="form-row">
