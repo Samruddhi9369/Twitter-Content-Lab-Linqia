@@ -31,7 +31,7 @@ app.get('/search', function (req, res) {
       resultType: req.query.resultType,
       tweet_mode: 'extended' // to get full text from Search API
     };
-    
+    console.log(params)
     client.get('search/tweets', params, function (error, tweets, response) {
         if (error) {
           console.log(error)
