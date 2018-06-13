@@ -29,12 +29,14 @@ export default {
       const response =  await TweetService.fetchTweets(tagName, resultCount, resultType)
       let prev_tweets = response.data.slice()
       let sortBy = this.sortBy
+      
         prev_tweets.sort((a, b) => {
           return b.sortBy - a.sortBy;
         });
       this.tweets = prev_tweets
     },
     changeSortBy(value){
+      console.log(value);
 			this.sortBy = value;
 		},
     sortTweet(prev_tweets, sortBy) {
