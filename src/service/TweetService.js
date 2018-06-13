@@ -1,9 +1,9 @@
 
 import Api from '@/service/Api'
+import axios from 'axios'
 let tweets = [];
 export default {
     fetchTweets (tagName, resultCount, resultType) {
-        console.log(tagName);
         let uri = 'search';
         
         let params = {
@@ -11,6 +11,7 @@ export default {
           resultCount: resultCount, 
           resultType: resultType
         }
-        return Api().get(uri,{params: params})
+        //return Api().get(uri,{params: params})
+        return axios.get(uri,{params: params})
     }
   }
