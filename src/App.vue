@@ -21,19 +21,18 @@ export default {
   data: function(){
     return {
       tweets:[],
-      sortBy:''
+      sortBy:'favorites'
     }
   },
   methods: {
     async searchTweet(tagName, resultCount, resultType) {
       const response =  await TweetService.fetchTweets(tagName, resultCount, resultType)
       let prev_tweets = response.data.slice()
-      let sortBy = SearchOutput.sortBy
+      let sortBy = this.sortBy
         prev_tweets.sort((a, b) => {
-          return b.favorites - a.favorites;
+          return b.sortBy - a.sortBy;
         });
       this.tweets = prev_tweets
-      this.sortBy = sortBy;
     },
     sortTweet(prev_tweets, sortBy) {
       if (sortBy === 'favorites') {
@@ -50,6 +49,7 @@ export default {
         });
       }
       this.tweets = prev_tweets;
+      this.sortBy = sortBy;
     }
   }
 }
