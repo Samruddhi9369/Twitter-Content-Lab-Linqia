@@ -11,5 +11,6 @@ export default new Router({
       name: 'SearchForm',
       component: SearchForm
     }
-  ]
+  ],
+  mode: 'history'
 })

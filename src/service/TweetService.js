@@ -11,6 +11,7 @@ export default {
           resultCount: resultCount, 
           resultType: resultType
         }
+        //Uncomment for localhost
         //return Api().get(uri,{params: params})
         return axios.get(uri,{params: params})
     }
