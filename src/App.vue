@@ -31,6 +31,7 @@ export default {
           return b.favorites - a.favorites;
         });
       this.tweets = prev_tweets
+      SearchOutput.sortBy = 'favorites'
     },
     sortTweet(prev_tweets, sortBy) {
       if (sortBy === 'favorites') {
