@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Twitter Content Lab</h1>
     <SearchForm v-on:formSubmit="searchTweet"></SearchForm>
-    <SearchOutput v-bind:sortBy="sortBy" v-bind:tweets="tweets" v-on:sortTweets="sortTweet"></SearchOutput>
+    <SearchOutput @selectedSortValue="changeSortBy" v-bind:tweets="tweets" v-on:sortTweets="sortTweet"></SearchOutput>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
   data: function(){
     return {
       tweets:[],
-      sortBy:'favorites'
+      sortBy:''
     }
   },
   methods: {
@@ -34,6 +34,9 @@ export default {
         });
       this.tweets = prev_tweets
     },
+    changeSortBy(value){
+			this.sortBy = value;
+		},
     sortTweet(prev_tweets, sortBy) {
       if (sortBy === 'favorites') {
         prev_tweets.sort((a, b) => {

@@ -34,6 +34,11 @@ export default {
       sortBy: 'favorites'
     }
   },
+  watch: {
+    sortBy(newValue){
+      this.$emit('selectedSortValue',newValue);
+    }
+  },
   methods: {
     sortTweets(e) {
       this.$emit('sortTweets', this.tweets, this.sortBy)
