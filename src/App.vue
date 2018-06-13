@@ -24,6 +24,9 @@ export default {
       sortBy:''
     }
   },
+  created(){
+    this.sortBy = 'favorites';
+  },
   methods: {
     async searchTweet(tagName, resultCount, resultType) {
       const response =  await TweetService.fetchTweets(tagName, resultCount, resultType)
