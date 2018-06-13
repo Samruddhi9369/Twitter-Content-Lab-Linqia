@@ -55,6 +55,6 @@ app.get('/', function(req, res){
   res.sendFile('index.html');
 })
 
-//app.listen(process.env.PORT || 4000, () => {
-//  console.log('Running on 4000')
-//})
+app.listen(process.env.PORT || 4000, () => {
+  console.log('Running on 4000')
+})
