@@ -34,10 +34,28 @@ export default {
       let sortBy = this.sortBy
       this.sortTweet(prev_tweets, sortBy)
     },
+    // sortTweet(prev_tweets, sortBy) {
+    //   if (sortBy === 'favorites' || sortBy === 'retweets') {
+    //     prev_tweets.sort((a, b) => {
+    //       return b.sortBy - a.sortBy;
+    //     });
+    //   } else {
+    //     prev_tweets.sort((a, b) => {
+    //       return b.id - a.id;
+    //     });
+    //   }
+    //   this.tweets = prev_tweets;
+    //   this.sortBy = sortBy;
+    // }
+
     sortTweet(prev_tweets, sortBy) {
-      if (sortBy === 'favorites' || sortBy === 'retweets') {
+      if (sortBy === 'favorites') {
         prev_tweets.sort((a, b) => {
-          return b.sortBy - a.sortBy;
+          return b.favorites - a.favorites;
+        });
+      } else if (sortBy === 'retweets') {
+        prev_tweets.sort((a, b) => {
+          return b.retweets - a.retweets;
         });
       } else {
         prev_tweets.sort((a, b) => {
