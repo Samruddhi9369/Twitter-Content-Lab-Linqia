@@ -1,21 +1,16 @@
-# client
+# Twitter Content Lab - Coding Challenge at Linqia
 
-> A Vue.js client for Twitter Content Lab
+> An application to search tweets using one or more hashtags
 
-## Build Setup
+## How to Get Started 
+  > Link: https://twitter-lab.herokuapp.com/
+  - Enter hashtag(s) separated by space in search menu, number of tweets (up to 100), and type of result.
+  - Click on Seatch button to view the result.
+  - Select the sort option to sort the results by the selected option in th dropdown.
 
-``` bash
-# install dependencies
-npm install
+## Tech Stack 
 
-# serve with hot reload at localhost:8080
-npm run dev
+- Vue.js
+- Node.js/Express
+- Heroku
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
