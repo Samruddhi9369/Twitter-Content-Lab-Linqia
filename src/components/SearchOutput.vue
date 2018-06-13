@@ -6,7 +6,7 @@
         <div class="form-group fl-right">
           <label for="sortBy">Sort By</label>
           <select class="form-control" v-model="sortBy" v-on:change="sortTweets">
-            <option value="favorites">Most Favorited</option>
+            <option value="favorites" selected>Most Favorited</option>
             <option value="retweets">Most Retweeted</option>
             <option value="recent">Most Recent</option>
           </select>

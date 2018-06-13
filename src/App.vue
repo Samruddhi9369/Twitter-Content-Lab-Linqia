@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Twitter Content Lab</h1>
     <SearchForm v-on:formSubmit="searchTweet"></SearchForm>
-    <SearchOutput @selectedSortValue="changeSortBy" v-bind:tweets="tweets" v-on:sortTweets="sortTweet"></SearchOutput>
+    <SearchOutput v-bind:tweets="tweets" v-on:sortTweets="sortTweet" @selectedSortValue="changeSortBy"></SearchOutput>
   </div>
 </template>
 
