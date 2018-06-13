@@ -39,7 +39,7 @@ app.get('/search', function (req, res) {
         if (error) {
           console.log(error)
         }
-        values = tweets['statuses'].map( tweet => {
+        let values = tweets['statuses'].map( tweet => {
           return  {
               id:tweet.id,
               created_at : tweet.created_at,
