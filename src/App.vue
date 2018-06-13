@@ -21,35 +21,23 @@ export default {
   data: function(){
     return {
       tweets:[],
-      sortBy:''
+      sortBy:'favorites'
     }
   },
-  created(){
-    this.sortBy = 'favorites';
-  },
   methods: {
+    changeSortBy(value){
+			this.sortBy = value;
+		},
     async searchTweet(tagName, resultCount, resultType) {
       const response =  await TweetService.fetchTweets(tagName, resultCount, resultType)
       let prev_tweets = response.data.slice()
       let sortBy = this.sortBy
-      
+      this.sortTweet(prev_tweets, sortBy)
+    },
+    sortTweet(prev_tweets, sortBy) {
+      if (sortBy === 'favorites' || sortBy === 'retweets') {
         prev_tweets.sort((a, b) => {
           return b.sortBy - a.sortBy;
-        });
-      this.tweets = prev_tweets
-    },
-    changeSortBy(value){
-      console.log(value);
-			this.sortBy = value;
-		},
-    sortTweet(prev_tweets, sortBy) {
-      if (sortBy === 'favorites') {
-        prev_tweets.sort((a, b) => {
-          return b.favorites - a.favorites;
-        });
-      } else if (sortBy === 'retweets') {
-        prev_tweets.sort((a, b) => {
-          return b.retweets - a.retweets;
         });
       } else {
         prev_tweets.sort((a, b) => {
