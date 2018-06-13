@@ -3,7 +3,7 @@
 import axios from 'axios'
 let tweets = [];
 export default {
-    fetchTweets (tagName, resultCount, resultType) {
+    fetchTweets (tagName, resultCount=15, resultType) {
         let uri = 'search';
         
         let params = {
