@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static(path.join(__dirname + '/../')))
+app.use(express.static(path.join(__dirname + '/../dist')))
 
 app.get('/search', function (req, res) {
     let params = {
