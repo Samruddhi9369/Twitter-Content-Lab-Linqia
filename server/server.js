@@ -1,4 +1,5 @@
 const express = require('express')
+const serveStatic = require('serve-static')
 const path = require('path')
 const env = require('dotenv')
 const Twitter = require('twitter')
@@ -22,7 +23,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(express.static(path.join(__dirname + '/../dist')))
+//app.use(express.static(path.join(__dirname + '/../dist')))
+// create middleware to handle the serving the app
+app.use("/", serveStatic ( path.join (__dirname, '/../dist') ) )
 
 app.get('/search', function (req, res) {
     let params = {
